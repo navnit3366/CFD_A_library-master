@@ -1,0 +1,6 @@
+django
+celery
+pytz
+regex
+requests
+pyexcel-ods

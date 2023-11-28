@@ -1,0 +1,52 @@
+{% extends "home/header.html" %}
+{% block content %}
+{% load staticfiles %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="font2">
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-4">
+            <a href="/bing/">
+                <center>
+                <img src="static/home/img/bing.png" class="img-circle responsive-img" style='max-height:200px;' alt="face">
+                <h3>Bing Search</h3>
+                </center>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a href='/trending/'>
+                <center>
+                <img src="static/home/img/trending.png" class="responsive-img" style='max-height:200px;' alt="face">
+                <h3>Trending</h3>
+                </center>
+            </a>
+        </div>
+    </div>
+    <form method="GET" action=''>
+    <div class="row" style="padding-bottom:15px">
+        <div class="col-sm-2"> 
+          <select class="form-control" id="s" name="f" value= '{{request.GET.f}}'>
+            <option selected="selected">catalogue</option>
+            <option>member</option>
+          </select>
+        </div>
+        <div class="col-sm-2">
+            <input type='submit'  class="form-control" value='Dump data'/>
+        </div>
+        {% if status %}
+            <div class="col-sm-2">
+                <a href="{% static 'home/data.json' %}">file</a>
+            </div>
+             <div class="col-sm-2">
+                <a href="{% static 'home/dataods.ods' %}">ods file</a>
+            </div>
+        {% endif %}
+    </div>
+    </form>
+    </div>
+</div>
+
+
+{% endblock %}
